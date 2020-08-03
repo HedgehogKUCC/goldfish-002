@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.wrap {
+  width: 100%;
+  display: flex;
+}
+
+.item {
+  width: 25%;
+  position: relative;
+}
+
+.item:hover .txt {
+  opacity: 1;
+}
+
+.item:hover h2::after {
+  width: 100%;
+}
+
+.item img {
+  /* 處理 img 下方會多出奇怪的空間
+    display: block; 或者
+    vertical-align: middle;
+  */
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.item .txt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, .6);
+
+  /* 開始做互動 */
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.item h2 {
+  font-size: 24px;
+  color: #ffff00;
+  font-weight: 500;
+}
+
+.item h2::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #ffff00;
+  margin: 10px 0;
+
+  /* 最後一個是延遲 */
+  transition: width .5s .3s;
+}
+
+.item p {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 100;
+}
